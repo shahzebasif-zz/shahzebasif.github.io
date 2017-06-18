@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <!-- http://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers -->
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="hader">
+            <div id="logo">
+                <a href="../">Notes</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <title>Tips for Linux shell</title>
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<a id="back-top" href="#">Top</a>
+<h1>Tips for Linux shell</h1>
+<a href="../files/shells.pdf">download</a>
+<div id="block"></div><ul>
+<li><a href="#references"><span class="toc-section-number">1</span> References</a></li>
+<li><a href="#commands"><span class="toc-section-number">2</span> Commands</a></li>
+<li><a href="#zshrc"><span class="toc-section-number">3</span> .zshrc</a></li>
+</ul>
+<div id="block"></div><h1 id="references"><span class="header-section-number">1</span> References</h1>
+<ul>
+<li><p>learncodethehardway</p></li>
+</ul>
+<h1 id="commands"><span class="header-section-number">2</span> Commands</h1>
+<p><code>cat &lt;filename&gt;</code></p>
+<ul>
+<li><p>Reads out whole file.</p></li>
+</ul>
+<p><code>head -n &lt;# of line&gt; &lt;filename&gt;</code></p>
+<ul>
+<li><p>Reads out <span class="math inline">\(n\)</span> lines.</p></li>
+</ul>
+<p><code>&lt;command&gt; &gt; &lt;filename&gt;</code></p>
+<ul>
+<li><p>Output from <code>command</code> overwrites everything in <code>filename</code>.</p></li>
+</ul>
+<p><code>&lt;command&gt; &gt;&gt; &lt;filename&gt;</code></p>
+<ul>
+<li><p>Output from <code>command</code> appends to <code>filename</code>.</p></li>
+</ul>
+<p><code>cp &lt;source&gt; &lt;dest&gt;</code></p>
+<ul>
+<li><p>Copy <code>source</code> to <code>dest</code>.</p></li>
+</ul>
+<p><code>mv &lt;source&gt; &lt;dest&gt;</code></p>
+<ul>
+<li><p>Move <code>source</code> to <code>dest</code>.</p></li>
+</ul>
+<p><code>rm &lt;filename&gt;</code></p>
+<ul>
+<li><p>Remove filename.</p></li>
+</ul>
+<p><code>rm test.!(txt)</code></p>
+<ul>
+<li><p>Removes all files that start with <code>test.</code> in the current directory apart from <code>test.txt</code>.</p></li>
+</ul>
+<p><code>du -hs</code></p>
+<ul>
+<li><p>Print file sizes in easily readable form.</p></li>
+</ul>
+<p><code>df -h</code></p>
+<ul>
+<li><p>Print disk sizes in easily readable form.</p></li>
+</ul>
+<p><code>top</code></p>
+<ul>
+<li><p>Shows current processes.</p></li>
+</ul>
+<p><code>lshw</code></p>
+<ul>
+<li><p>Shows current hardware.</p></li>
+</ul>
+<p><code>find -name &quot;&lt;filename&gt;&quot;</code></p>
+<ul>
+<li><p>Find filename.</p></li>
+</ul>
+<p><code>whereis &lt;program&gt;</code></p>
+<ul>
+<li><p>Gives location of binary program.</p></li>
+</ul>
+<p><code>wc &lt;filename&gt;</code></p>
+<ul>
+<li><p>Gives word count of <code>filename</code>.</p></li>
+</ul>
+<p><code>grep &lt;text&gt; &lt;filename&gt;</code></p>
+<ul>
+<li><p>Searches for <code>text</code> in <code>filename</code>.</p></li>
+</ul>
+<p><code>&lt;command&gt; &amp;</code></p>
+<ul>
+<li><p>Puts <code>command</code> in background.</p></li>
+</ul>
+<p><code>sudo poweroff</code></p>
+<ul>
+<li><p>Turns off computer.</p></li>
+</ul>
+<p><code>sudo reboot</code></p>
+<ul>
+<li><p>Reboots computer.</p></li>
+</ul>
+<p><code>chmod -x &lt;filename&gt;</code></p>
+<ul>
+<li><p>Change owner of file to an executable.</p></li>
+</ul>
+<p><code>chmod &lt;xyz&gt; &lt;filename&gt;</code></p>
+<ul>
+<li><p>Change owner of file to <code>xyz</code>.</p></li>
+<li><p><code>x</code> is for current user’s permission.</p></li>
+<li><p><code>y</code> is for group’s permission.</p></li>
+<li><p><code>z</code> is for others’ permission.</p></li>
+</ul>
+<p><code>&lt;someprogram&gt; | &lt;someotherprogram&gt;</code></p>
+<ul>
+<li><p>“Pipes” the first output into second.</p></li>
+</ul>
+<p>Another important thing about bash profiles is that export path line at the beginning kind of tells it to look for the right libraries and scripts to run</p>
+<p><code>find . -name '*.html' | xargs perl -pi -e 's/find/replace/g'</code></p>
+<ul>
+<li><p>Finds and replaces text across all files in directory.</p></li>
+</ul>
+<h1 id="zshrc"><span class="header-section-number">3</span> .zshrc</h1>
+<pre><code># If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+  export ZSH=/home/joa/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to &quot;random&quot;
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME=&quot;robbyrussell&quot;
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE=&quot;true&quot;
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE=&quot;true&quot;
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE=&quot;true&quot;
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS=&quot;true&quot;
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE=&quot;true&quot;
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION=&quot;true&quot;
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS=&quot;true&quot;
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY=&quot;true&quot;
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: &quot;mm/dd/yyyy&quot;|&quot;dd.mm.yyyy&quot;|&quot;yyyy-mm-dd&quot;
+# HIST_STAMPS=&quot;mm/dd/yyyy&quot;
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH=&quot;/usr/local/man:$MANPATH&quot;
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS=&quot;-arch x86_64&quot;
+
+# ssh
+# export SSH_KEY_PATH=&quot;~/.ssh/rsa_id&quot;
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig=&quot;mate ~/.zshrc&quot;
+# alias ohmyzsh=&quot;mate ~/.oh-my-zsh&quot;
+
+
+# Mine
+export PATH=&quot;$PATH:$HOME/bin&quot;
+
+alias agi='sudo apt-get install'
+alias agr='sudo apt-get remove'
+alias agu='sudo apt-get update'
+alias acs='apt-cache search'
+alias ach='apt-cache show'
+
+alias utar='tar -zxvf'
+alias mtar='tar -cvzf'
+
+alias ntpup='sudo ntpdate ntp.ubuntu.com'
+alias mscr='chmod +x'
+alias srm='serial-mon'
+
+alias clr='clear &amp;&amp; clear'
+
+alias emm='emacs -geometry 90x51+900+30'
+alias emw='emacs -nw'
+
+alias affs='sftp shahzeb1@gpu.srv.ualberta.ca'
+alias afss='ssh shahzeb1@gpu.srv.ualberta.ca'
+
+alias gad='git add -A'
+alias gst='git status'
+alias giff='git diff'
+alias gcm='git commit'
+alias gps='git push origin'
+alias gpl='git pull origin'
+alias gfc='git fetch'
+alias glg=&quot;git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative&quot;
+alias gck='git checkout'
+alias grml='git branch -d'
+alias grms='git push origin --delete'
+alias gbra='git branch'
+
+alias vlg=&quot;valgrind --tool=memcheck --leak-check=full --track-origins=yes --show-reachable=yes&quot;
+
+alias endir=&quot;gpg-zip -c -o&quot;
+alias dedir=&quot;gpg-zip -d&quot;
+
+alias knet=&quot;sudo killall NetworkManager&quot;
+alias mine=&quot;cd ~/Documents/mine/&quot;</code></pre>
+
+        </div>
+
+        <div id="footer">
+            <a href="../files/resume.pdf">resume</a>
+            <a href="../pages/src.html">src</a>
+        </div>
+    </body>
+</html>

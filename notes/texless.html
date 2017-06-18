@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <!-- http://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers -->
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    </head>
+    <body>
+        <div id="hader">
+            <div id="logo">
+                <a href="../">Notes</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <title>Texless documentation</title>
+            <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<a id="back-top" href="#">Top</a>
+<h1>Texless documentation</h1>
+<a href="../files/texless.pdf">download</a>
+<div id="block"></div><ul>
+<li><a href="#header"><span class="toc-section-number">1</span> Header</a></li>
+<li><a href="#body"><span class="toc-section-number">2</span> Body</a></li>
+<li><a href="#table"><span class="toc-section-number">3</span> Table</a></li>
+<li><a href="#list"><span class="toc-section-number">4</span> List</a></li>
+</ul>
+<div id="block"></div><h1 id="header"><span class="header-section-number">1</span> Header</h1>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Item</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Title</td>
+<td align="left">Title of the document</td>
+</tr>
+<tr class="even">
+<td align="left">Date</td>
+<td align="left">Date of the document</td>
+</tr>
+<tr class="odd">
+<td align="left">Author</td>
+<td align="left">Author of the document</td>
+</tr>
+<tr class="even">
+<td align="left">Preamble</td>
+<td align="left">Custom tex preamble that will replace all standard preamble</td>
+</tr>
+<tr class="odd">
+<td align="left">Delims</td>
+<td align="left">Specify custom delimeters as <code>Delims=bl_verb:&amp;,&amp;//bl_math:%,%</code></td>
+</tr>
+<tr class="even">
+<td align="left">Font</td>
+<td align="left">Custom font for the document</td>
+</tr>
+<tr class="odd">
+<td align="left">Metadata</td>
+<td align="left">Metadata that will be put in a <code>&lt;file&gt;.tex.metadata</code> file</td>
+</tr>
+</tbody>
+</table>
+<h1 id="body"><span class="header-section-number">2</span> Body</h1>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Item</th>
+<th align="left">Inline</th>
+<th align="left">Block</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Verbatim</td>
+<td align="left"><code>;</code></td>
+<td align="left"><code>+v v+</code></td>
+</tr>
+<tr class="even">
+<td align="left">Raw Tex</td>
+<td align="left"><code>^</code></td>
+<td align="left"><code>+r r+</code></td>
+</tr>
+<tr class="odd">
+<td align="left">Math</td>
+<td align="left"><code>!</code></td>
+<td align="left"><code>+m m+</code></td>
+</tr>
+<tr class="even">
+<td align="left">Bold</td>
+<td align="left"><code>[]</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">URL</td>
+<td align="left"><code>@ &lt;name&gt; | &lt;link&gt; @</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Images</td>
+<td align="left"></td>
+<td align="left"><code>+i &lt;caption&gt; | &lt;image_path&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h1 id="table"><span class="header-section-number">3</span> Table</h1>
+<pre><code>+t      &lt;columns&gt;   | &lt;table_name&gt;
+&lt;column_1_header&gt;   | &lt;column_2_header&gt; | ...
+&lt;column_1&gt;          | &lt;column_2&gt;        | ...</code></pre>
+<h1 id="list"><span class="header-section-number">4</span> List</h1>
+<pre><code>- parent last
+    - child one
+        - child two
+    - back to child one
+
+- new list</code></pre>
+
+        </div>
+
+        <div id="footer">
+            <a href="../files/resume.pdf">resume</a>
+            <a href="../pages/src.html">src</a>
+        </div>
+    </body>
+</html>
